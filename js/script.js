@@ -18,22 +18,29 @@ counters.forEach( (item, i) => {
 function hideSideMenu() {
     menu.classList.remove('menu__active');
 }
-$('form').submit(function(e) {
-    e.preventDefault();
 
-    if (!$(this).valid()) {
-        return;
-    }
+function sendEmail() {
+
+    emailjs.init("YtSNTgUc2utpTMt2g");
+
+    var fromName = document.getElementById("name").value;
+    var toName = "Aleksei";
     
-    $.ajax({
-        type: "POST",
-        url: "mailer/smart.php",
-        data: $(this).serialize()
-    }).done(function() {
-        $(this).find("input").val("");
+    var message = document.getElementById("messageText").value;
 
+    var replyTo = document.getElementById("email").value;
 
-        $('form').trugger('reset');
-    });
-    return false;
-});
+    var data = {
+                from_name: fromName,
+                to_name: toName,
+                message: message,
+                reply_to: replyTo                              
+            };
+
+    emailjs.send("service_0oda5fd", "gmail_f0oxdx6", data)
+        .then(function(response) {
+        console.log("Email sent successfully", response);
+        }, function(error) {
+        console.log("Email failed to send", error);
+        });
+}
