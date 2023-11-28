@@ -41,8 +41,8 @@ function sendEmail() {
 
     emailjs.send("service_0oda5fd", "gmail_f0oxdx6", data)
         .then(function(response) {
-        console.log("Email sent successfully", response);
+        alert("Email sent successfully");
         }, function(error) {
-        console.log("Email failed to send", error);
+        alert("Email failed to send");
         });
 }
