@@ -24,11 +24,13 @@ function sendEmail() {
     emailjs.init("YtSNTgUc2utpTMt2g");
 
     var fromName = document.getElementById("name").value;
+    console.log(fromName);
     var toName = "Aleksei";
     
     var message = document.getElementById("messageText").value;
 
     var replyTo = document.getElementById("email").value;
+    console.log(message);
 
     var data = {
                 from_name: fromName,
