@@ -48,7 +48,7 @@ if (matrixCanvas) {
         let columns = [];
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]();:,.!?';
         const fontSize = 22;
-        const trailLength = 10;
+        const trailLength = 14;
 
         function resizeMatrix() {
             width = window.innerWidth;
@@ -65,7 +65,7 @@ if (matrixCanvas) {
                 columns.push({
                     x: i * fontSize + Math.random() * fontSize,
                     y: Math.random() * -height,
-                    speed: 1.2,
+                    speed: 1.2 + Math.random() * 8,
                     alpha: 0.5 + Math.random() * 0.35,
                     changeTimer: 0,
                     changeInterval: 8 + Math.floor(Math.random() * 10)
