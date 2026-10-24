@@ -40,79 +40,83 @@ const matrixCanvas = document.getElementById('matrixCanvas');
 
 if (matrixCanvas) {
     const ctx = matrixCanvas.getContext('2d');
-    let width = 0;
-    let height = 0;
-    let columns = [];
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]();:,.!?';
-    const fontSize = 22;
-    const trailLength = 8;
+    if (!ctx) {
+        console.warn('Matrix canvas is not supported in this browser.');
+    } else {
+        let width = 0;
+        let height = 0;
+        let columns = [];
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]();:,.!?';
+        const fontSize = 22;
+        const trailLength = 10;
 
-    function resizeMatrix() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        matrixCanvas.width = width * window.devicePixelRatio;
-        matrixCanvas.height = height * window.devicePixelRatio;
-        matrixCanvas.style.width = width + 'px';
-        matrixCanvas.style.height = height + 'px';
-        ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+        function resizeMatrix() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            matrixCanvas.width = width * window.devicePixelRatio;
+            matrixCanvas.height = height * window.devicePixelRatio;
+            matrixCanvas.style.width = width + 'px';
+            matrixCanvas.style.height = height + 'px';
+            ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
 
-        columns.length = 0;
-        const visibleColumns = Math.max(34, Math.ceil(width / fontSize) + 8);
-        for (let i = 0; i < visibleColumns; i++) {
-            columns.push({
-                x: i * fontSize + Math.random() * fontSize,
-                y: Math.random() * -height,
-                speed: 1.2,
-                alpha: 0.45 + Math.random() * 0.35,
-                changeTimer: 0,
-                changeInterval: 2 + Math.floor(Math.random() * 8)
-            });
-        }
-    }
-
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(2, 11, 7, 0.18)';
-        ctx.fillRect(0, 0, width, height);
-
-        for (let i = 0; i < columns.length; i++) {
-            const column = columns[i];
-            ctx.font = fontSize + 'px monospace';
-
-            if (column.changeTimer >= column.changeInterval) {
-                column.changeTimer = 0;
-                const headChar = chars[Math.floor(Math.random() * chars.length)];
-                ctx.fillStyle = 'rgba(220, 255, 230, ' + (column.alpha + 0.15) + ')';
-                ctx.fillText(headChar, column.x, column.y);
+            columns.length = 0;
+            const visibleColumns = Math.max(32, Math.ceil(width / fontSize) + 8);
+            for (let i = 0; i < visibleColumns; i++) {
+                columns.push({
+                    x: i * fontSize + Math.random() * fontSize,
+                    y: Math.random() * -height,
+                    speed: 1.2,
+                    alpha: 0.5 + Math.random() * 0.35,
+                    changeTimer: 0,
+                    changeInterval: 8 + Math.floor(Math.random() * 10)
+                });
             }
-
-            for (let offset = 1; offset < trailLength; offset++) {
-                const y = column.y - offset * fontSize * 0.8;
-                if (y < 0 || y > height) continue;
-
-                const char = chars[Math.floor(Math.random() * chars.length)];
-                const alpha = Math.max(0.12, 1 - offset / trailLength) * column.alpha;
-
-                ctx.fillStyle = 'rgba(0, 255, 157, ' + alpha + ')';
-                ctx.fillText(char, column.x, y);
-            }
-
-            column.changeTimer += 1;
-
-            if (column.y > height + 40) {
-                column.y = Math.random() * -60;
-                column.x = i * fontSize + Math.random() * fontSize;
-                column.changeTimer = 0;
-            }
-
-            column.y += column.speed;
         }
 
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(2, 11, 7, 0.18)';
+            ctx.fillRect(0, 0, width, height);
+
+            for (let i = 0; i < columns.length; i++) {
+                const column = columns[i];
+                ctx.font = fontSize + 'px monospace';
+
+                if (column.changeTimer >= column.changeInterval) {
+                    column.changeTimer = 0;
+                    const headChar = chars[Math.floor(Math.random() * chars.length)];
+                    ctx.fillStyle = 'rgba(220, 255, 230, ' + (column.alpha + 0.12) + ')';
+                    ctx.fillText(headChar, column.x, column.y);
+                }
+
+                for (let offset = 1; offset < trailLength; offset++) {
+                    const y = column.y - offset * fontSize * 0.8;
+                    if (y < 0 || y > height) continue;
+
+                    const char = chars[Math.floor(Math.random() * chars.length)];
+                    const alpha = Math.max(0.12, 1 - offset / trailLength) * column.alpha;
+
+                    ctx.fillStyle = 'rgba(0, 255, 157, ' + alpha + ')';
+                    ctx.fillText(char, column.x, y);
+                }
+
+                column.changeTimer += 1;
+
+                if (column.y > height + 40) {
+                    column.y = Math.random() * -60;
+                    column.x = i * fontSize + Math.random() * fontSize;
+                    column.changeTimer = 0;
+                }
+
+                column.y += column.speed;
+            }
+
+            requestAnimationFrame(drawMatrix);
+        }
+
+        resizeMatrix();
         requestAnimationFrame(drawMatrix);
+        window.addEventListener('resize', resizeMatrix);
     }
-
-    resizeMatrix();
-    requestAnimationFrame(drawMatrix);
-    window.addEventListener('resize', resizeMatrix);
 }
 
 const contactForm = document.getElementById('contactForm');
