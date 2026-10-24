@@ -43,14 +43,6 @@
 
 <body>
     <aside class="sidepanel">
-        <a href="mailto:aleksei.develop@gmail.com?subject=Backend%20Engineering%20Opportunity" class="sidepanel__link"
-            aria-label="Email Aleksei">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M-7.46167e-07 2.92969L-1.28061e-07 17.0703C-5.74539e-08 18.6856 1.31439 20 2.92969 20L17.0703 20C18.6856 20 20 18.6856 20 17.0703L20 11.1719L12.9297 11.1719L12.9297 13.5156L9.41406 13.5156L9.41406 11.1719L7.03125 11.1719C5.09262 11.1719 3.51562 9.59488 3.51562 7.65625L3.51562 4.10156L7.03125 4.10156L7.03125 7.65625L9.41406 7.65625L9.41406 4.10156L12.9297 4.6875L12.9297 7.65625L20 7.65625L20 2.92969C20 1.31439 18.6856 -8.16774e-07 17.0703 -7.46167e-07L2.92969 -1.28061e-07C1.31439 -5.74539e-08 -8.16774e-07 1.31439 -7.46167e-07 2.92969Z"
-                    fill="#01a2ff" />
-            </svg>
-        </a>
         <a href="https://www.linkedin.com/in/aleksei-briukhachev-297b97218/" class="sidepanel__link" target="_blank"
             rel="noreferrer noopener"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -123,8 +115,8 @@
                     </svg></a>
             </div>
         </div>
-        <div class="menu__overlay"></div>
     </div>
+    <div class="menu__overlay" aria-hidden="true"></div>
     <section class="promo">
         <div class="hamburger"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="21" viewBox="0 0 36 21"
                 fill="none">
@@ -330,47 +322,53 @@
             <div class="divider"></div>
             <div class="skills__items">
                 <div class="skills__item">
-                    <div class="skills__item-img"><img src="icons/skills/java.svg" alt="java" loading="lazy"></div>
+                    <div class="skills__item-img"><img
+                            src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+                            alt="java" loading="lazy"></div>
                     <h3 class="title title_fz14">Java</h3>
                     <p>Java 8, 11, 17, and 21 for backend systems, service logic, and application maintenance.</p>
                 </div>
                 <div class="skills__item">
-                    <div class="skills__item-img"><img src="icons/skills/kotlin.svg" alt="kotlin" loading="lazy"></div>
+                    <div class="skills__item-img"><img src="https://cdn.simpleicons.org/kotlin/7F52FF" alt="kotlin"
+                            loading="lazy"></div>
                     <h3 class="title title_fz14">Kotlin</h3>
                     <p>Application development with Kotlin in business-critical Java ecosystems and service layers.</p>
                 </div>
                 <div class="skills__item">
-                    <div class="skills__item-img"><img src="icons/skills/spring-svgrepo-com.svg" alt="spring"
+                    <div class="skills__item-img"><img src="https://cdn.simpleicons.org/spring/6DB33F" alt="spring"
                             loading="lazy"></div>
                     <h3 class="title title_fz14">Spring Boot</h3>
                     <p>Building backend services, REST APIs, and integrations using the Spring ecosystem.</p>
                 </div>
                 <div class="skills__item">
-                    <div class="skills__item-img"><img src="icons/skills/hibernate-ar21.svg" alt="hibernate"
-                            loading="lazy"></div>
+                    <div class="skills__item-img"><img src="https://cdn.simpleicons.org/hibernate/59666A"
+                            alt="hibernate" loading="lazy"></div>
                     <h3 class="title title_fz14">SQL & Data</h3>
                     <p>Database integration, relational data processing, and business logic tied to financial workflows.
                     </p>
                 </div>
                 <div class="skills__item">
-                    <div class="skills__item-img"><img src="icons/skills/apache-kafka-icon.svg" alt="kafka"
+                    <div class="skills__item-img"><img src="https://cdn.simpleicons.org/apachekafka/231F20" alt="kafka"
                             loading="lazy"></div>
                     <h3 class="title title_fz14">Kafka</h3>
                     <p>Asynchronous communication and event-driven integration between backend services.</p>
                 </div>
                 <div class="skills__item">
-                    <div class="skills__item-img"><img src="icons/skills/mq.svg" alt="ibm_mq" loading="lazy"></div>
+                    <div class="skills__item-img"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="ibm_mq"
+                            loading="lazy"></div>
                     <h3 class="title title_fz14">IBM MQ</h3>
                     <p>Messaging integration and system interaction in enterprise and financial environments.</p>
                 </div>
                 <div class="skills__item">
-                    <div class="skills__item-img"><img src="icons/skills/maven.svg" alt="maven" loading="lazy"></div>
+                    <div class="skills__item-img"><img src="https://cdn.simpleicons.org/apachemaven/C71A36" alt="maven"
+                            loading="lazy"></div>
                     <h3 class="title title_fz14">Maven</h3>
                     <p>Build lifecycle management, dependency control, and release preparation for Java services.</p>
                 </div>
                 <div class="skills__item">
-                    <div class="skills__item-img"><img src="icons/skills/postgresql.svg" alt="postgresql"
-                            loading="lazy"></div>
+                    <div class="skills__item-img"><img src="https://cdn.simpleicons.org/postgresql/316192"
+                            alt="postgresql" loading="lazy"></div>
                     <h3 class="title title_fz14">Relational DBs</h3>
                     <p>Working with SQL-based systems and data-intensive business processes reliably.</p>
                 </div>
@@ -434,14 +432,14 @@
                         <a href="https://www.linkedin.com/in/aleksei-briukhachev-297b97218/" class="contacts__link"
                             target="_blank" rel="noreferrer noopener"><img src="icons/social/linkedin_norm.svg"
                                 alt="LinkedIn"></a>
-                        <a href="https://github.com/AlekseiBriukhachev" class="contacts__link" target="_blank"
-                            rel="noreferrer noopener"><img src="icons/social/telegram.svg" alt="GitHub"></a>
+                        <a href="https://wa.me/420777679854?text=Hello%20Aleksei%2C%20I%27d%20like%20to%20discuss%20a%20backend%20opportunity."
+                            class="contacts__link" target="_blank" rel="noreferrer noopener"><img
+                                src="icons/social/whatsapp.svg" alt="WhatsApp"></a>
                         <a href="mailto:aleksei.develop@gmail.com?subject=Backend%20Engineering%20Opportunity"
-                            class="contacts__link"><img src="icons/social/Facebook_norm.svg" alt="Email"></a>
+                            class="contacts__link" aria-label="Send email to Aleksei" title="Send email to Aleksei">
+                            <img src="https://cdn.simpleicons.org/gmail/000000" alt="Gmail" width="32" height="32">
+                        </a>
                     </div>
-                    <div class="title title_fz14 contacts__text">Email: <a
-                            href="mailto:aleksei.develop@gmail.com?subject=Backend%20Engineering%20Opportunity"
-                            style="color: #01a2ff;">aleksei.develop@gmail.com</a></div>
                     <div class="title title_fz14 contacts__text">Location: Prague, Czech Republic</div>
 
                     <form class="contacts__form" id="contactForm"
@@ -461,22 +459,54 @@
                             <label for="message">Your message</label>
                             <textarea id="message" name="message" rows="6"
                                 placeholder="Write a short description of your project or opportunity..."
-                                maxlength="500" required></textarea>
-                            <small class="contacts__char-limit">Maximum 500 characters</small>
+                                maxlength="2000" required></textarea>
+                            <small class="contacts__char-limit">Maximum 2000 characters</small>
                         </div>
                         <div class="contacts__form-actions">
-                            <button type="submit" class="btn">Send message</button>
+                            <button type="submit" class="btn" disabled>Send message</button>
                         </div>
                     </form>
 
                     <div class="contacts__triggers" style="margin-top: 26px;">
-                        <div class="contacts__policy"><input type="checkbox" checked disabled> <span>I agree to get in
-                                touch by email about backend engineering opportunities.</span></div>
+                        <label class="contacts__policy"
+                            style="display:flex; align-items:flex-start; gap:10px; cursor:pointer;">
+                            <input type="checkbox" id="consentCheckbox" name="consent" value="yes" required>
+                            <span>I agree to get in touch by email about backend engineering opportunities and to the
+                                processing of my contact details for this purpose. <a href="policy.html" target="_blank"
+                                    rel="noreferrer noopener" style="color:#01a2ff; text-decoration:underline;">Privacy
+                                    policy</a>.</span>
+                        </label>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <div class="footer__logo">AB</div>
+                <p>Backend engineer focused on reliable Java, Kotlin, and Spring services for business-critical systems.
+                </p>
+            </div>
+            <div class="footer__links">
+                <a href="#aboutMe">About</a>
+                <a href="#myResume">Experience</a>
+                <a href="#mySkils">Skills</a>
+                <a href="#myWorks">Projects</a>
+                <a href="#myContacts">Contact</a>
+            </div>
+            <div class="footer__contact">
+                <a
+                    href="mailto:aleksei.develop@gmail.com?subject=Backend%20Engineering%20Opportunity">aleksei.develop@gmail.com</a>
+                <a href="https://www.linkedin.com/in/aleksei-briukhachev-297b97218/" target="_blank"
+                    rel="noreferrer noopener">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2025 Aleksei Briukhachev</span>
+            <a href="policy.html" target="_blank" rel="noreferrer noopener">Privacy policy</a>
+        </div>
+    </footer>
     <script src="js/script.js"></script>
 </body>
 

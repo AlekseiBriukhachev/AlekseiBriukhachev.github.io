@@ -175,12 +175,29 @@ textarea {
     font-size: 14px;
     font-weight: 700;
     line-height: 21px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+    cursor: pointer
 }
 
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 18px 35px rgba(1, 162, 255, 0.3)
+}
+
+.btn:disabled,
+.btn[disabled] {
+    background: linear-gradient(135deg, #5d6a72 0%, #7f8c93 100%);
+    color: rgba(255, 255, 255, 0.78);
+    box-shadow: none;
+    opacity: 0.68;
+    cursor: not-allowed;
+    transform: none
+}
+
+.btn:disabled:hover,
+.btn[disabled]:hover {
+    transform: none;
+    box-shadow: none
 }
 
 .sidepanel {
@@ -259,11 +276,15 @@ textarea {
     height: 100vh;
     z-index: 20;
     transform: translateX(-110%);
-    transition: transform 0.35s ease
+    transition: transform 0.35s ease;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .menu__active {
-    transform: translateX(0)
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .menu__block {
@@ -337,7 +358,18 @@ textarea {
     background: rgba(5, 9, 12, 0.52);
     backdrop-filter: blur(4px);
     z-index: 19;
-    cursor: pointer
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
+}
+
+.menu__active~.menu__overlay,
+.menu.menu__active+.menu__overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .promo {
@@ -903,25 +935,101 @@ textarea {
 }
 
 .contacts__char-limit {
-  color: rgba(216, 227, 234, 0.72);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+    color: rgba(216, 227, 234, 0.72);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .contacts__form-status {
-  grid-column: 1 / -1;
-  min-height: 20px;
-  color: var(--green);
-  font-size: 13px;
-  font-weight: 600;
+    grid-column: 1 / -1;
+    min-height: 20px;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .contacts__form-status.error {
-  color: #ff8b8b;
+    color: #ff8b8b;
 }
 
-@media (max-width:1200px) {
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(8, 15, 19, 0.86);
+    margin-top: 32px;
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 30px 0 18px;
+}
+
+.footer__brand {
+    max-width: 420px;
+}
+
+.footer__logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(1, 162, 255, 0.18), rgba(93, 195, 165, 0.18));
+    border: 1px solid rgba(1, 162, 255, 0.35);
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+}
+
+.footer__brand p {
+    margin: 0;
+    color: var(--muted-2);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer__links,
+.footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__links a,
+.footer__contact a,
+.footer__bottom a {
+    color: var(--muted-2);
+    transition: color 0.2s ease;
+}
+
+.footer__links a:hover,
+.footer__contact a:hover,
+.footer__bottom a:hover {
+    color: var(--text);
+}
+
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 0 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--muted-2);
+    font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+    .hamburger {
+        display: block
+    }
+
     .promo__wrapper {
         margin-left: 0;
         width: min(720px, 100%)
