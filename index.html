@@ -443,10 +443,33 @@
                             href="mailto:aleksei.develop@gmail.com?subject=Backend%20Engineering%20Opportunity"
                             style="color: #01a2ff;">aleksei.develop@gmail.com</a></div>
                     <div class="title title_fz14 contacts__text">Location: Prague, Czech Republic</div>
+
+                    <form class="contacts__form" id="contactForm"
+                        action="https://formsubmit.co/ajax/aleksei.develop@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Backend engineering opportunity">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="contacts__field">
+                            <label for="name">Your name</label>
+                            <input id="name" name="name" type="text" placeholder="Your name" maxlength="80" required>
+                        </div>
+                        <div class="contacts__field">
+                            <label for="email">Your email</label>
+                            <input id="email" name="email" type="email" placeholder="you@example.com" maxlength="120"
+                                required>
+                        </div>
+                        <div class="contacts__field contacts__field--full">
+                            <label for="message">Your message</label>
+                            <textarea id="message" name="message" rows="6"
+                                placeholder="Write a short description of your project or opportunity..."
+                                maxlength="500" required></textarea>
+                            <small class="contacts__char-limit">Maximum 500 characters</small>
+                        </div>
+                        <div class="contacts__form-actions">
+                            <button type="submit" class="btn">Send message</button>
+                        </div>
+                    </form>
+
                     <div class="contacts__triggers" style="margin-top: 26px;">
-                        <a class="contacts__btn btn"
-                            href="mailto:aleksei.develop@gmail.com?subject=Backend%20Engineering%20Opportunity">Send a
-                            message</a>
                         <div class="contacts__policy"><input type="checkbox" checked disabled> <span>I agree to get in
                                 touch by email about backend engineering opportunities.</span></div>
                     </div>
