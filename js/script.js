@@ -44,7 +44,7 @@ if (matrixCanvas) {
     let height = 0;
     let columns = [];
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]();:,.!?';
-    const fontSize = 24;
+    const fontSize = 22;
     const trailLength = 8;
 
     function resizeMatrix() {
