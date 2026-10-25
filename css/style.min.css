@@ -875,7 +875,8 @@ textarea {
 
 .contacts__link img {
     max-width: 24px;
-    max-height: 24px
+    max-height: 24px;
+    filter: brightness(0) saturate(100%) invert(82%) sepia(46%) saturate(590%) hue-rotate(91deg) brightness(103%) contrast(102%)
 }
 
 .contacts__text {
